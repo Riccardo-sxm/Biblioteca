@@ -60,18 +60,18 @@ public class Biblioteca {
         materiali.add(mat);
     }
 
-    public static boolean verificaDisponibilità(int codice){
+    public static boolean verificaDisponibilità(String codice){
         for (Materiale mat : materiali){
-            if (mat.getId()==codice){
+            if (mat.getCodiceInterno().equals(codice)){
                 return mat.isDisponibile();
             }
         }
         return false;
     }
 
-    public static void effettuaPrestito(int codice){
+    public static void effettuaPrestito(String codice){
         for (Materiale mat : materiali){
-            if (mat.getId()==codice){
+            if (mat.getCodiceInterno().equals(codice)){
                 if (mat.isDisponibile()){
                     mat.setDisponibile(false);
                 }
@@ -79,9 +79,9 @@ public class Biblioteca {
         }
     }
 
-    public static void restituisciPrestito(int codice){
+    public static void restituisciPrestito(String codice){
         for (Materiale mat : materiali){
-            if (mat.getId()==codice){
+            if (mat.getCodiceInterno().equals(codice)){
                 if (!mat.isDisponibile()){
                     mat.setDisponibile(true);
                 }
