@@ -4,9 +4,9 @@ public class Materiale {
     private String titolo;
     private String genere;
     private boolean disponibile;
-    private String id;
+    private int id;
 
-    public Materiale(String codiceInterno, String titolo, String genere, boolean disponibile, String id) {
+    public Materiale(String codiceInterno, String titolo, String genere, boolean disponibile, int id) {
         this.codiceInterno = codiceInterno;
         this.titolo = titolo;
         this.genere = genere;
@@ -46,15 +46,15 @@ public class Materiale {
         this.disponibile = disponibile;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    
+
 
     
 }

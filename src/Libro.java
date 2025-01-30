@@ -4,20 +4,16 @@ public class Libro extends Materiale {
     private String editore;
     private String isbn;
     private int nPagine;
-    private static int nLibri = 0;
-    private String codiceInterno;
-    codiceInterno = "L" + nLibri;
+    private static int nLibri = 1;
 
-    public Libro(String titolo, String genere, boolean disponibile, String id, String autore,
+    public Libro(String titolo, String genere, boolean disponibile, int id, String autore,
             String editore, String isbn, int nPagine) {
-        super(codiceInterno, titolo, genere, disponibile, id);
+        super("L" + nLibri, titolo, genere, disponibile, id);
         this.autore = autore;
         this.editore = editore;
         this.isbn = isbn;
         this.nPagine = nPagine;
-        this.nLibri = nLibri++;
-        
-        
+        nLibri++;
     }
 
     public String getAutore() {
@@ -52,8 +48,18 @@ public class Libro extends Materiale {
         this.nPagine = nPagine;
     }
 
-    
-    
-
-
+    @Override
+    public String toString() {
+        return "Libro [\n"+
+        "  codiceInterno=" + getCodiceInterno() + ",\n"+
+        "  titolo=" + getTitolo() + ",\n"+ 
+        "  genere=" + getGenere() + ",\n"+
+        "  autore=" + autore + ",\n"+
+        "  editore=" + editore + ",\n"+
+        "  isbn=" + isbn + ",\n"+
+        "  nPagine=" + nPagine + ",\n"+
+        "  disponibile=" + isDisponibile() + ",\n"+
+        "  idBiblioteca=" + getId() + "\n"+
+        "]";
+    }
 }

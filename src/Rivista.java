@@ -3,13 +3,15 @@ public class Rivista extends Materiale {
     private String editore;
     private int anno;
     private int nrVolume;
+    private static int nRivista = 1;
 
-    public Rivista(String codiceInterno, String titolo, String genere, boolean disponibile, String id, String editore,
+    public Rivista(String titolo, String genere, boolean disponibile, int id, String editore,
             int anno, int nrVolume) {
-        super(codiceInterno, titolo, genere, disponibile, id);
+        super("R"+nRivista, titolo, genere, disponibile, id);
         this.editore = editore;
         this.anno = anno;
         this.nrVolume = nrVolume;
+        nRivista++;
     }
 
     public String getEditore() {
@@ -36,8 +38,16 @@ public class Rivista extends Materiale {
         this.nrVolume = nrVolume;
     }
 
-    public void generaCodice() {
-        
+    @Override
+    public String toString() {
+        return "Rivista [\n"+
+            "  codiceInterno=" + getCodiceInterno() + ",\n"+
+            "  titolo=" + getTitolo() + ",\n"+
+            "  genere=" + getGenere() + ",\n"+
+            "  editore=" + editore + ",\n"+
+            "  anno=" + anno + ",\n"+
+            "  nrVolume=" + nrVolume + "\n"+
+            "]";
     }
     
 
